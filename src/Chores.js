@@ -5,44 +5,43 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const days_in_week = 7;
-const people = ['Chloe', 'Mariana', 'Hamza', 'Srishti']
+const people = ['Chloe', 'Hee Joong', 'Hamza', 'Srishti']
 const colors = ['#8dd3c7','#80b1d3','#bebada','#fb8072']
 const shifted_index = [1,0,3,2]
-// const 
+
+const choreList = [
+  [
+    'Clean downstairs and upstairs bathroom (mop floor and clean toilet and sink)'
+  ],
+  [
+    'Put up drying rack dishes this week',
+    'Wash bath mat, bathroom rug, hand towels in both bathrooms, and kitchen drying rags'
+  ],
+  [
+    'Take out indoor trash to backyard bins this week',
+    'Empty bathroom trash can',
+    'Take out trash bins to curb on Sunday'
+  ],
+  [
+    'Wipe down the kitchen counters',
+    'Sweep the kitchen and dining room',
+    'Mop the kitchen and dining room'
+  ]
+]
 
 function isWeek(week, shift, name){
-  return ((week+shift)%8)-name == 0 || ((week+shift)%8)-(4+shifted_index[name]) == 0
+  return ((week+shift)%8)-name === 0 || ((week+shift)%8)-(4+shifted_index[name]) === 0
 }
 
 function getChores(name) {
   
-  const startDate = new Date('September 17, 2023')
+  const startDate = new Date('September 18, 2023')
   const currDate = new Date();
-  const num_days = currDate.getDate() - startDate.getDate();
-  // const num_days = days_in_week*0 + 5;
-  const num_days_mod_56 = num_days%(days_in_week*8);
-  const week = Math.floor(num_days_mod_56/days_in_week);
-
-  let choreList = [];
-  if(isWeek(week, 0, name)) {
-    choreList.push('Take out indoor trash to backyard bins this week');
-    choreList.push('Empty bathroom trash can')
-    choreList.push('Take out trash bins to curb on Sunday');
-  }
-  if(isWeek(week, 1, name)) {
-    choreList.push('Put up drying rack dishes this week')
-  }
-  if(isWeek(week, 2, name)) {
-    choreList.push('Spray shower with after shower spray')
-  }
-  if(isWeek(week, 3, name)) {
-    choreList.push('Wash bath mat, bathroom rug, hand towels in both bathrooms, and kitchen drying rags')
-  }
-  if(choreList.length == 0){
-    choreList.push('None this week')
-  }
-
-  return choreList;
+  const amount_time = currDate.getTime() - startDate.getTime();
+  const num_days = Math.floor(amount_time / (1000 * 3600 * 24));
+  const week = (Math.floor(num_days/days_in_week)+name)%4;
+  
+  return choreList[week]
 }
 
 function Chores() {
@@ -55,22 +54,20 @@ function Chores() {
       </Row>
       <Row>
         {people.map((name,i) => 
-          <Col xs={12} sm={12} md={12} lg={3} xl={3} style={{marginTop: '10px', marginBottom: '10px'}}>
-            <Card className='text-center' >
+          <Col key={"column"+i} xs={12} sm={12} md={12} lg={3} xl={3} style={{marginTop: '10px', marginBottom: '10px'}}>
+            <Card className='text-center' key={"card"+i}>
               <Card.Header><b>{name}</b></Card.Header>
               <Card.Body>
-                <Card.Text>
                   <ListGroup>
                     <ListGroup.Item style={{backgroundColor: colors[i], color: 'white'}}>
                       Weekly Chores
                     </ListGroup.Item>
-                    {getChores(i).map(chore => 
-                      <ListGroup.Item>
+                    {getChores(i).map((chore,j) => 
+                      <ListGroup.Item key={'chore'+i+j}>
                         {chore}
                       </ListGroup.Item>  
                     )}
                   </ListGroup>
-                </Card.Text>
               </Card.Body>
             </Card>
           </Col>
