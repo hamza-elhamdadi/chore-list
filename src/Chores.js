@@ -11,11 +11,14 @@ const shifted_index = [1,0,3,2]
 
 const choreList = [
   [
-    'Clean downstairs and upstairs bathroom (mop floor and clean toilet and sink)'
+    'Clean bathroom sinks (magic eraser and water)',
+    'Clean bathroom toilets from top to bottom (all purpose cleaner spray bottle and rags)',
+    'Clean bathroom toilet bowls (toilet bowl cleaner)',
+    'Pick up big trash items from bathroom floors',
+    'Mop bathroom floors (1/2 tsp all purpose cleaner in mop bucket)'
   ],
   [
-    'Put up drying rack dishes this week',
-    'Wash bath mat, bathroom rug, hand towels in both bathrooms, and kitchen drying rags'
+    'Free Week (enjoy the weekend!)'
   ],
   [
     'Take out indoor trash to backyard bins this week',
@@ -23,9 +26,11 @@ const choreList = [
     'Take out trash bins to curb on Sunday'
   ],
   [
-    'Wipe down the kitchen counters',
+    'Clean the microwave (all purpose cleaner spray bottle)',
+    'Wipe down the kitchen counters (all purpose cleaner spray bottle)',
     'Sweep the kitchen and dining room',
-    'Mop the kitchen and dining room'
+    'Mop the kitchen and dining room (1/2 tsp all purpose cleaner in mop bucket)',
+    'Wash bath mat, bathroom rug, hand towels in both bathrooms, and kitchen drying rags'
   ]
 ]
 
