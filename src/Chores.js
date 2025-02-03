@@ -5,8 +5,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const days_in_week = 7;
-const people = ['Chloe', 'Hee Joong', 'Hamza', 'Srishti']
-const colors = ['#8dd3c7','#80b1d3','#bebada','#fb8072']
+const people = ['Hamza', 'Srishti', 'Chloe', 'Hee Joong']
+const colors = ['#bebada','#80b1d3','#8dd3c7','#fb8072']
 const shifted_index = [1,0,3,2]
 
 const choreList = [
